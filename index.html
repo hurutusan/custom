@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動的変更</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #333; }
+    p { color: #555; }
+  </style>
+</head>
+<body>
+  <h1 id="title">デフォルトのタイトル</h1>
+  <p id="message">デフォルトの本文</p>
+
+  <script>
+    // URLのパラメータを取得
+    const params = new URLSearchParams(window.location.search);
+
+    // パラメータが存在する場合、それに基づいて変更
+    const title = params.get('t'); // タイトル
+    const message = params.get('m'); // 本文
+
+    if (title) {
+      document.getElementById('title').textContent = title;
+    }
+
+    if (message) {
+      document.getElementById('message').textContent = message;
+    }
+  </script>
+</body>
+</html>
